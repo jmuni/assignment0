@@ -47,16 +47,27 @@ void exec(row* L, row* R, int left, int right, int col, row* dat){
 
    
     while(i < left && j < right){
-	char* strl =L[i].rToken[col];
-	char* strr=R[i].rToken[col];
+	char* strl = L[i].rToken[col];
+	char* strr = R[i].rToken[col];
+
+//	if(strlen(L[i].rToken[col]) == 0) {
+//	    L[i].rToken[col] = 0;
+//	    y = 0;
+//	}
+//	if(strlen(R[i].rToken[col]) == 0) {
+//	    R[i].rToken[col] = 0;
+//	    y = 1;	
+//	} 
 	if(isNum(L[i].rToken[col])==1 && isNum(R[i].rToken[col])==1){
 	    float sl = atof(strl);
-	    float sr=atof(strr);
+	    float sr = atof(strr);
 	if(sl <= sr){
-	//printf("\n%f=0=%f\n",sl,sr);
+//	printf("\n%f=0=%f\n",sl,sr);
+//	printf("ltok %d, \n", strlen(L[i].rToken[col]));
 	y=0;
 	}else{
-	//printf("\n%f=1=%f\n",sl,sr);
+//	printf("\n%f=1=%f\n",sl,sr);
+//	printf("rtok %d, \n", strlen(R[i].rToken[col]));
 	y=1;
 	}
 
@@ -64,24 +75,30 @@ void exec(row* L, row* R, int left, int right, int col, row* dat){
 
 	// string comparison
 	    if(strcmp(strl, strr)<=0){ 
-	//printf("\n%s=0=%s\n",strl,strr);
-
+//	    printf("\n%s=0=%s\n",strl,strr);
+//	    printf("l %d, \n", strlen(strl));
 	    y=0;
 
 	    }else{
 	    y=1;
-     	    //printf("\n%s=1=%s\n",strl,strr);
+//     	    printf("\n%s=1=%s\n",strl,strr);
+//     	    printf("r %d, \n", strlen(strr));
 	    }
 
 	}   
 
 
 	if(L[i].rToken[col] == NULL){
-	    L[i].rToken[col] == 0;
+	    L[i].rToken[col] = 0;
+//	if( strl == NULL) {
+//	    strl += "0";
 	    y=0;
+		
 	}else{
 	if(R[i].rToken[col] == NULL){
-	    R[i].rToken[col] == 0;
+	    R[i].rToken[col] = 0;
+//	if( strr == NULL) {
+//	    strr += "0";
 	    y=1;
 	}
     }  
@@ -143,7 +160,7 @@ void mergeSort(row* data, int col, int n){
 
     mergeSort(L,col, mid);
     mergeSort(R,col, n-mid);
-   exec(L,R,mid,n-mid,col,data);
+    exec(L,R,mid,n-mid,col,data);
 
 
     free(L);
