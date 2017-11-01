@@ -50,14 +50,14 @@ void exec(row* L, row* R, int left, int right, int col, row* dat){
 	char* strl = L[i].rToken[col];
 	char* strr = R[i].rToken[col];
 
-	if(strlen(L[i].rToken[col]) == 0) {
-	    L[i].rToken[col] = "0";
-	    y = 0;
-	}
-	if(strlen(R[i].rToken[col]) == 0) {
-	    R[i].rToken[col] = "0";
-	    y = 1;	
-	} 
+//	if(strlen(L[i].rToken[col]) == 0) {
+//	    L[i].rToken[col] = "0";
+//	    y = 0;
+//	}
+//	if(strlen(R[i].rToken[col]) == 0) {
+//	    R[i].rToken[col] = "0";
+//	    y = 1;	
+//	} 
 	if(isNum(L[i].rToken[col])==1 && isNum(R[i].rToken[col])==1){
 	    float sl = atof(strl);
 	    float sr = atof(strr);
@@ -89,14 +89,14 @@ void exec(row* L, row* R, int left, int right, int col, row* dat){
 
 
 	if(L[i].rToken[col] == NULL){
-	    L[i].rToken[col] = 0;
+//	    L[i].rToken[col] = 0;
 //	if( strl == NULL) {
 //	    strl += "0";
 	    y=0;
 		
 	}else{
 	if(R[i].rToken[col] == NULL){
-	    R[i].rToken[col] = 0;
+//	    R[i].rToken[col] = 0;
 //	if( strr == NULL) {
 //	    strr += "0";
 	    y=1;
